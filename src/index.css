@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(234, 234, 234);
+}
+
+.bordered-text {
+  /* Adjust the font size as needed */
+  color: transparent; /* Hide the text color */
+  -webkit-text-stroke: 1px white; /* Apply a border-like stroke */
+  /* Add padding for better visibility */
+}
+@keyframes floatAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.float-element {
+  animation: floatAnimation 5s ease-in-out infinite;
+}
+.float-element-reversed {
+  animation: floatAnimation 5s ease-in-out infinite reverse;
+}
+.icon {
+  color: #ef4444;
+  transition: color 0.2s; /* Adding a smooth transition effect */
+}
+
+.icon:hover {
+  color: rgb(40, 40, 40);
+  cursor: pointer;
+}
+.custom-shadow {
+  box-shadow: -6px -4px 8px white, 4px 4px 8px rgb(142, 142, 142);
+}
