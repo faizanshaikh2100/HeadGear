@@ -1,7 +1,7 @@
 function Image({ item }) {
   return (
     <>
-      <div className="xs:hidden md:block">
+      <div className="smsm:hidden md:block">
         <img src={item.src} alt={item.name} className="" />
       </div>
       <div className="md:hidden">
