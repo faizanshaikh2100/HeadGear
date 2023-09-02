@@ -11648,31 +11648,37 @@ export const banners = [
   {
     id: 1,
     name: "headphone",
+    src_m: "https://www.imgbly.com/ib/YMKMt2oxC9.png",
     src: "https://www.imgbly.com/ib/BeD9PAzmdg.png",
   },
   {
     id: 2,
     name: "headphone",
+    src_m: "https://www.imgbly.com/ib/SjMHdQtb2w.png",
     src: "https://www.imgbly.com/ib/4iihFO0DU7.png",
   },
   {
     id: 3,
     name: "headphone",
+    src_m: "https://www.imgbly.com/ib/qUsZlwF417.png",
     src: "https://www.imgbly.com/ib/094wMHJcz2.png",
   },
   {
     id: 4,
     name: "headphone",
+    src_m: "https://www.imgbly.com/ib/Fns1bc2iwO.png",
     src: "https://www.imgbly.com/ib/LRd26DFXgp.png",
   },
   {
     id: 5,
     name: "headphone",
+    src_m: "https://www.imgbly.com/ib/pczJH775Oq.png",
     src: "https://www.imgbly.com/ib/YxmqEtYhx4.png",
   },
   {
     id: 6,
     name: "headphone",
+    src_m: "https://www.imgbly.com/ib/4HZOh6nMWQ.png",
     src: "https://www.imgbly.com/ib/niL7n9QtgJ.png",
   },
 ];

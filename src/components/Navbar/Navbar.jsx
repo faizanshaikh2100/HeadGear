@@ -12,14 +12,14 @@ function Navbar({ mobileMenu, setMobileMenu }) {
         <GiHamburgerMenu
           color={"#ef4444"}
           size={30}
-          className="md:hidden mr-auto"
+          className="md:hidden mr-2"
           onClick={() => setMobileMenu(!mobileMenu)}
         />
       ) : (
         <IoMdClose
           color={"#ef4444"}
           size={40}
-          className="md:hidden mr-auto"
+          className="md:hidden mr-2"
           onClick={() => setMobileMenu(!mobileMenu)}
         />
       )}
