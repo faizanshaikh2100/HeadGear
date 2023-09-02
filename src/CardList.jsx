@@ -11,13 +11,13 @@ function CardList({ title, dataArray, categories }) {
         {title}
       </h3>
       <br />
-      <ul className="grid lg:grid-cols-4 md:grid-cols-3 gap-3 sm:grid-cols-2 xs:grid-cols-2 place-content-center ">
+      <ul className="grid lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2 gap-3 place-content-center ">
         {dataArray.map((item) =>
           categories.includes(item.product_type) ? (
             <Card
               key={item.id}
               item={item}
-              className="xs:w-[200px] sm:w-[250px]"
+              className="xs:w-[170px] sm:w-[250px] "
             />
           ) : (
             <></>
