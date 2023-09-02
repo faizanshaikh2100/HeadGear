@@ -1,6 +1,6 @@
 import { IoIosContact } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
-// import { useState } from "react";
+
 function MySection() {
   return (
     <div className="hidden md:flex items-center gap-3 pr-10 ">
