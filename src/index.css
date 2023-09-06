@@ -4,11 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* * {
+  cursor: url("https://www.imgbly.com/ib/QSGkHBXPdQ.png"), auto;
+} */
+/* .cursor_pointer {
+  cursor: url("https://www.imgbly.com/ib/FLmBVrVQfW.png"), auto;
+} */
 body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  background-color: #eaeaea;
+  background-color: #d0d0d0;
 }
 
 .bordered-text {

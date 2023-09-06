@@ -5,20 +5,42 @@ export function useTopPicks() {
   const [topPicks, setTopPicks] = useState([]);
 
   useEffect(() => {
-    const startIndex = Math.floor(Math.random() * cardItems.length - 20);
-    const arr = cardItems.slice(startIndex, startIndex + 20);
+    const lastShuffleTimestamp = localStorage.getItem("lastShuffleTimestamp");
+    const currentTime = Date.now();
 
-    const topPicksData = shuffleArray(arr);
+    // Check if the last shuffle happened more than 24 hours ago (86400000 milliseconds)
+    if (
+      !lastShuffleTimestamp ||
+      currentTime - lastShuffleTimestamp >= 86400000
+    ) {
+      // Initialize shuffled array and selected indices
+      const shuffled = [];
+      const selectedIndices = new Set();
 
-    setTopPicks(topPicksData);
-  }, []);
-  const shuffleArray = (array) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      // Continue selecting random indices until we have 20 unique items
+      while (shuffled.length < 20 && selectedIndices.size < cardItems.length) {
+        const randomIndex = Math.floor(Math.random() * cardItems.length);
+
+        // Ensure the same index is not selected again
+        if (!selectedIndices.has(randomIndex)) {
+          shuffled.push(cardItems[randomIndex]);
+          selectedIndices.add(randomIndex);
+        }
+      }
+
+      // Save the shuffled cards and current timestamp in localStorage
+      localStorage.setItem("topPicks", JSON.stringify(shuffled));
+      localStorage.setItem("lastShuffleTimestamp", currentTime);
+
+      setTopPicks(shuffled);
+    } else {
+      // Retrieve the shuffled cards from localStorage
+      const storedTopPicks = localStorage.getItem("topPicks");
+      if (storedTopPicks) {
+        setTopPicks(JSON.parse(storedTopPicks));
+      }
     }
-    return shuffled;
-  };
+  }, []);
+
   return topPicks;
 }

@@ -2,7 +2,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 function MyCarousel({ title, className, children }) {
   return (
-    <div className={className}>
+    <div className={" " + className}>
       <h3>{title}</h3>
       <Carousel showThumbs={false} autoPlay={true} infiniteLoop={true}>
         {children}

@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Filtered JSON Downloader</title>
+    <title>Convert HTML Tags to Arrays</title>
   </head>
   <body>
-    <button id="downloadButton">Download Filtered JSON</button>
+    <h1>Convert HTML Tags to Arrays</h1>
+    <label for="jsonFile">Select JSON File:</label>
+    <input type="file" id="jsonFile" accept=".json" />
+    <button onclick="convertAndDownload()">Convert and Download</button>
 
-    <script src="script.js"></script>
+    <script>
+      function convertAndDownload() {
+        const fileInput = document.getElementById("jsonFile");
+        const file = fileInput.files[0];
+
+        if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (event) {
+            const jsonData = JSON.parse(event.target.result);
+
+            // Convert "highlights" HTML to an array of strings
+            const highlightsDiv = document.createElement("div");
+            highlightsDiv.innerHTML = jsonData.highlights;
+            const highlightsList = Array.from(
+              highlightsDiv.querySelectorAll("li")
+            ).map((li) => li.textContent);
+
+            // Convert "imageurls" HTML to an array of strings
+            const imageUrlsDiv = document.createElement("div");
+            imageUrlsDiv.innerHTML = jsonData.imageurls;
+            const imageUrlsList = Array.from(
+              imageUrlsDiv.querySelectorAll("img")
+            ).map((img) => img.getAttribute("src"));
+
+            // Replace the original JSON data
+            jsonData.highlights = highlightsList;
+            jsonData.imageurls = imageUrlsList;
+
+            // Create a Blob with the updated JSON data
+            const updatedJsonData = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([updatedJsonData], {
+              type: "application/json",
+            });
+
+            // Create a download link and trigger the download
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "converted_data.json";
+            a.click();
+          };
+
+          reader.readAsText(file);
+        }
+      }
+    </script>
   </body>
 </html>

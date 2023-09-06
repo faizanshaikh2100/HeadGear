@@ -1,5 +1,3 @@
-import Button from "../Button";
-
 function Card({ item, className }) {
   return (
     <li
@@ -8,13 +6,12 @@ function Card({ item, className }) {
         className
       }
     >
-      <img src={item.images_urls[0]} alt={item.title} className="rounded-xl " />
+      <img src={item.image1src} alt={item.title_main} className="rounded-xl " />
       <h3 className="font-semibold">{item.brand}</h3>
       <div className="overflow-hidden">
-        <h3 className="font-normal whitespace-nowrap">{item.title}</h3>
+        <h3 className="font-normal whitespace-nowrap">{item.title_main}</h3>
       </div>
-      <h3>{"$ " + Math.round(item.price / 100)}</h3>
-      <Button title="Add to Cart" />
+      <h3>{"$" + item.price}</h3>
     </li>
   );
 }
